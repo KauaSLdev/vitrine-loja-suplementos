@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Natural - Produtos Saudáveis</title>
+    <style>
+        /* --- ESTILOS GERAIS (CSS) --- */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            color: #333;
+            background-color: #e8f5e9; /* Cor de fundo verde claro */
+        }
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 50px 0;
+        }
+        h1, h2 {
+            font-family: 'Helvetica', sans-serif;
+            font-weight: bold;
+            color: #4CAF50;
+        }
+        h1 { font-size: 2.8em; }
+        h2 {
+            font-size: 2.4em;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        p {
+            line-height: 1.6;
+            font-size: 1.1em;
+        }
+        .btn {
+            display: inline-block;
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        .btn:hover { background-color: #45a049; }
+
+        /* --- CABEÇALHO E NAVEGAÇÃO --- */
+        .header {
+            background-color: #fff;
+            padding: 15px 5%;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .logo img { height: 50px; }
+        .nav a {
+            margin-left: 25px;
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+
+        /* --- SEÇÃO PRINCIPAL (HERO) --- */
+        .hero {
+            background-image: url('./IMAGENS NATURAL/fundo.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 120px 20px;
+        }
+        .hero h1 {
+            color: white;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.6);
+        }
+        
+        /* --- SEÇÕES DE CONTEÚDO --- */
+        .section-light { background-color: #fff; }
+        .section-gray { background-color: #f9f9f9; }
+        
+        /* --- PRODUTOS --- */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        .product-link {
+            text-decoration: none;
+            color: inherit;
+        }
+        .product-card {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+            text-align: center;
+            height: 100%;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .product-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+        .product-card img {
+            width: 75%;
+            margin: 0 auto 15px;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            border-radius: 50%;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .product-card h3 {
+            color: #333;
+            margin-top: 15px;
+        }
+        
+        /* --- SEÇÃO DE DELIVERY --- */
+        .delivery-section-container {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            flex-wrap: wrap; /* Permite que os itens quebrem a linha em telas menores */
+        }
+        .delivery-text, .delivery-image {
+            flex: 1; /* Faz com que ambos os lados tentem ocupar o mesmo espaço */
+            min-width: 300px; /* Largura mínima antes de quebrar a linha */
+        }
+        .delivery-text h2 {
+            text-align: left; /* Alinha o título à esquerda */
+        }
+        .delivery-image img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        /* --- SOBRE NÓS --- */
+        .about-section {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        .about-section img {
+            max-width: 350px;
+            border-radius: 10px;
+        }
+
+        /* --- MAPA --- */
+        .map-iframe {
+            width: 100%;
+            height: 450px;
+            border: 0;
+            border-radius: 10px;
+            margin-top: 30px;
+        }
+
+        /* --- BOTÃO FLUTUANTE DO WHATSAPP --- */
+        .whatsapp-float-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+            transition: transform 0.2s ease;
+        }
+        .whatsapp-float-button:hover {
+            transform: scale(1.1);
+        }
+        .whatsapp-float-button img {
+            width: 70px;
+            height: 70px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            border-radius: 50%;
+        }
+
+        /* --- RODAPÉ --- */
+        .footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 40px 20px;
+        }
+        .footer p { font-size: 0.9em; }
+        .footer a { color: #4CAF50; text-decoration: none; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <a href="#" class="logo">
+            <img src="./20250820_000149.png" alt="Logo A Natural Produtos Saudáveis">
+        </a>
+        <nav class="nav">
+            <a href="#">Início</a>
+            <a href="#">Produtos</a>
+            <a href="#sobre">Sobre Nós</a>
+            <a href="#contato">Contato</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Sua vida mais saudável começa aqui.</h1>
+        <p>Em busca de um estilo de vida mais saudável? Você encontrou o lugar certo em Goiânia.</p>
+        <a href="#contato" class="btn">Venha nos conhecer no Bairro Santo Hilário!</a>
+    </section>
+
+    <section class="section-gray">
+        <div class="container">
+            <h2>Nossos Produtos em Destaque</h2>
+            <div class="products-grid">
+                
+                <a href="#" class="product-link">
+                    <div class="product-card">
+                        <img src="./20250820_002556.png" alt="Suplementos e Vitaminas">
+                        <h3>Suplementos e Vitaminas</h3>
+                        <p>Tudo para potencializar seus treinos e sua saúde, com as melhores marcas do mercado.</p>
+                    </div>
+                </a>
+                
+                <a href="#" class="product-link">
+                    <div class="product-card">
+                        <img src="./GRANEL.png" alt="Produtos a Granel">
+                        <h3>Produtos a Granel</h3>
+                        <p>Castanhas, grãos, sementes e temperos. Leve a quantidade que quiser, com qualidade e frescor.</p>
+                    </div>
+                </a>
+                
+                <a href="#" class="product-link">
+                    <div class="product-card">
+                        <img src="./20250820_003509.png" alt="Açaí e Sorvete">
+                        <h3>Açaí & Sorvetes</h3>
+                        <p>O melhor açaí da região, além de sorvetes deliciosos para refrescar o seu dia.</p>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="delivery" class="section-light">
+        <div class="container delivery-section-container">
+            <div class="delivery-text">
+                <h2>Nós Levamos a A Natural Até Você!</h2>
+                <p>Falta de tempo não é mais desculpa para não se cuidar. Peça seus produtos favoritos – suplementos, granel, açaí e muito mais – pelo WhatsApp e receba no conforto da sua casa.</p>
+                <p>Praticidade para sua rotina saudável. Entregamos em toda Goiânia!</p>
+                <a href="https://wa.me/556236381202" class="btn" target="_blank">Peça Agora Pelo WhatsApp</a>
+            </div>
+            <div class="delivery-image">
+                <img src="./ChatGPT Image 20 de ago. de 2025, 01_36_56.png" alt="Serviço de Delivery A Natural">
+            </div>
+        </div>
+    </section>
+
+    <section id="sobre" class="section-gray">
+        <div class="container about-section">
+            <img src="./20250820_000149.png" alt="Loja A Natural">
+            <div>
+                <h2>Bem-vindo à A Natural!</h2>
+                <p>Nascemos com a missão de oferecer produtos de qualidade para quem busca um estilo de vida mais saudável em Goiânia. Na A Natural, você encontra uma seleção completa para suas necessidades, seja você um atleta buscando suplementos ou uma família procurando por alimentos frescos e a granel.</p>
+                <p>Trabalhamos com <strong>atacado e varejo</strong>, sempre com um atendimento próximo e dedicado a te ajudar a fazer as melhores escolhas. Venha fazer parte da nossa comunidade!</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contato" class="section-light">
+        <div class="container">
+            <h2>Onde Estamos</h2>
+            <p style="text-align: center; font-size: 1.2em;">
+                <strong>Endereço:</strong> Avenida Dom Serafim Gomes Jardim, Qd.35 Lt.14<br>
+                Bairro Santo Hilário, Goiânia - GO, 74740-450<br><br>
+                <strong>Horário de Funcionamento:</strong><br>
+                Segunda a Sexta: 8h às 18h30 | Sábado: 8h às 17h
+            </p>
+            
+            <iframe class="map-iframe" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3822.5752125715894!2d-49.194259525669345!3d-16.648074994553266!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x935eed34e107692b%3A0x1ad5837e5e6c28b4!2sA%20Natural%20Produtos%20Saud%C3%A1veis!5e0!3m2!1spt-BR!2sbr!4v1755662489031!5m2!1spt-BR!2sbr" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+        </div>
+    </section>
+    
+    <footer class="footer">
+        <p>© 2025 A Natural Produtos Saudáveis. Todos os direitos reservados.</p>
+        <p>Siga-nos no Instagram: <a href="https://www.instagram.com/anaturalatacadista/" target="_blank">@anaturalatacadista</a></p>
+    </footer>
+
+    <a href="https://wa.me/556236381202" class="whatsapp-float-button" target="_blank">
+        <img src="./whatsapp-logo-png-0.png" alt="Fale Conosco pelo WhatsApp">
+    </a>
+
+</body>
+</html>
